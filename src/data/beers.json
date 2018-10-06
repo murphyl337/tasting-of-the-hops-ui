@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "name": "Blushing Monk",
+        "style": "framboise",
+        "brewery": "Founder's",
+        "submitter": "Michael Lesniak",
+        "rating": 4
+    },
+    {
+        "id": 2,
+        "name": "Bud Light",
+        "brewery": "Walmart",
+        "submitter": "Bobert Clyde",
+        "rating": -1
+    },
+    {
+        "id": 3,
+        "name": "Coffee Kolsch",
+        "brewery": "Witch's Hat",
+        "submitter": "Terver",
+        "rating": 1
+    },
+    {
+        "id": 4,
+        "name": "Herpaderp",
+        "brewery": "Hipsterville",
+        "submitter": "Moonchild",
+        "rating": 2
+    },
+    {
+        "id": 5,
+        "name": "No. 9",
+        "brewery": "Magic Hat",
+        "submitter": "Eric",
+        "rating": 9
+    },
+    {
+        "id": 6,
+        "name": "Bean Flicker",
+        "brewery": "Odd Side",
+        "submitter": "Ja Rule",
+        "rating": 1
+    }
+]
