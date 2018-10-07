@@ -1,0 +1,110 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import withMobileDialog from '@material-ui/core/withMobileDialog';
+import TextField from '@material-ui/core/TextField';
+import SignUpButton from '../components/SignUpButton'
+
+class SignUpModal extends React.Component {
+  state = {
+    open: false,
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  handleSignUpClicked = () => {
+    console.log('hererherh')
+    const newBeer = {
+      name: this.state.name, 
+      beerName: this.state.beerName,
+      brewery: this.state.brewery
+    }
+
+    this.props.onSubmit(newBeer)
+  };
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    })
+  }
+
+  render() {
+    const { fullScreen } = this.props;
+
+    return (
+      <div>
+        <SignUpButton onClick={this.handleClickOpen.bind(this)}></SignUpButton>
+        <Dialog
+          fullScreen={fullScreen}
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="responsive-dialog-title"
+        >
+          <form>
+            <DialogTitle id="responsive-dialog-title">{"Sign your beer up"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Please enter your information below:
+            </DialogContentText>
+              <TextField
+                required
+                autoFocus
+                margin="dense"
+                id="name"
+                label="Your name"
+                type="text"
+                onChange={this.handleChange('name')}
+                fullWidth
+              />
+              <TextField
+                required
+                autoFocus
+                margin="dense"
+                id="beerName"
+                label="Beer's name"
+                type="text"
+                onChange={this.handleChange('beerName')}
+                fullWidth
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="brewery"
+                label="Brewery"
+                type="text"
+                onChange={this.handleChange('brewery')}
+                fullWidth
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Cancel
+            </Button>
+              <Button onClick={this.handleSignUpClicked.bind(this)} color="primary" autoFocus>
+                Sign Up
+            </Button>
+            </DialogActions>
+          </form>
+        </Dialog>
+      </div>
+    );
+  }
+}
+
+SignUpModal.propTypes = {
+  fullScreen: PropTypes.bool.isRequired,
+};
+
+export default withMobileDialog()(SignUpModal);
