@@ -15,7 +15,7 @@ class BeerSubmission extends React.Component {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMore />}>
-                    <h2>{beer.name}</h2>
+                    <h3>{beer.name}</h3>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <List dense={false}>
