@@ -35,9 +35,9 @@ function SearchAppBar(props) {
       <AppBar position="static">
         <Toolbar className={classes.appToolbar}>
           <AppIcon></AppIcon>
-          <Typography className={classes.title} variant="title" color="inherit">
-            Tasting of the Hops
-          </Typography>
+            <Typography className={classes.title} variant="title" color="inherit">
+              Tasting of the Hops
+            </Typography>
         </Toolbar>
       </AppBar>
     </div>

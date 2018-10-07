@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ExpansionPanelSummary, ExpansionPanel, Typography, ExpansionPanelDetails } from '@material-ui/core';
+import { ExpansionPanelSummary, ExpansionPanel, ExpansionPanelDetails } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import BusinessIcon from '@material-ui/icons/Business'
@@ -15,24 +15,24 @@ class BeerSubmission extends React.Component {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMore />}>
-                    <Typography>{beer.name}</Typography>
+                    <h2>{beer.name}</h2>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <List dense={false}>
                         <ListItem>
                             <BusinessIcon>
                             </BusinessIcon>
-                            <ListItemText primary={beer.brewery} />
+                            <ListItemText secondary="Brewery " primary={beer.brewery}/>
                         </ListItem>
                         <ListItem>
                             <PersonIcon>
                             </PersonIcon>
-                            <ListItemText primary={beer.submitter} />
+                            <ListItemText secondary="Submitter " primary={beer.submitter} />
                         </ListItem>
                         <ListItem>
                             <ThumbsUpDown>
                             </ThumbsUpDown>
-                            <ListItemText primary={beer.rating} />
+                            <ListItemText secondary="Rating " primary={beer.rating} />
                         </ListItem>
                     </List>
                 </ExpansionPanelDetails>
