@@ -24,10 +24,9 @@ class SignUpModal extends React.Component {
   };
 
   handleSignUpClicked = () => {
-    console.log('hererherh')
     const newBeer = {
       name: this.state.name, 
-      beerName: this.state.beerName,
+      submitter: this.state.submitter,
       brewery: this.state.brewery
     }
 
@@ -65,7 +64,7 @@ class SignUpModal extends React.Component {
                 id="name"
                 label="Your name"
                 type="text"
-                onChange={this.handleChange('name')}
+                onChange={this.handleChange('submitter')}
                 fullWidth
               />
               <TextField
@@ -75,7 +74,7 @@ class SignUpModal extends React.Component {
                 id="beerName"
                 label="Beer's name"
                 type="text"
-                onChange={this.handleChange('beerName')}
+                onChange={this.handleChange('name')}
                 fullWidth
               />
               <TextField
