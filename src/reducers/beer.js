@@ -16,6 +16,7 @@ export default (state = initState, action) => {
             beer.id = state.beers.length + 1
             beer.rating = 0
             return {...state, beers: state.beers.concat(beer)}
+        default:
+            return initState
     }
-    return state
 }

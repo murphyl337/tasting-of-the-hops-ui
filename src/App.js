@@ -7,12 +7,11 @@ import {connect} from 'react-redux';
 
 class App extends Component {
   render() {
-    const { beers } = this.props
     return (
       <div className="App">
         <AppBar></AppBar>
         <SignUpModal onSubmit={this.props.onSubmit}></SignUpModal>
-        <BeerTable beers={{beers}}></BeerTable>
+        <BeerTable></BeerTable>
       </div>
     );
   }
