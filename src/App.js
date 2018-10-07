@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppBar from './AppBar'
-import BeerTable from './components/BeerTable'
+import BeerTable from './containers/BeerTable'
 import './App.css'
 import SignUpModal from './containers/SignUpModal';
 import {connect} from 'react-redux';
