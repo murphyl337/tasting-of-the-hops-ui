@@ -33,7 +33,5 @@ BeerTable.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => state
-const ConnectedBeerTable = connect(mapStateToProps)(BeerTable)
-
+const ConnectedBeerTable = connect((state) => state)(BeerTable)
 export default withStyles(styles)(ConnectedBeerTable);

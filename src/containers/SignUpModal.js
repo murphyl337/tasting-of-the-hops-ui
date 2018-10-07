@@ -31,6 +31,7 @@ class SignUpModal extends React.Component {
     }
 
     this.props.onSubmit(newBeer)
+    this.setState({ open: false })
   };
 
   handleChange = name => event => {
