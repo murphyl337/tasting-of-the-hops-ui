@@ -3,6 +3,7 @@ import AppBar from './AppBar'
 import BeerTable from './components/BeerTable'
 import './App.css'
 import SignUpModal from './containers/SignUpModal';
+import {connect} from 'react-redux';
 
 class App extends Component {
   render() {
@@ -17,4 +18,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => state
+const ConnectedApp = connect(mapStateToProps)(App)
+export default ConnectedApp

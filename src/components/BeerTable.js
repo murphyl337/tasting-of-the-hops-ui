@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
+import { ExpansionPanelSummary, ExpansionPanel, Typography, ExpansionPanelDetails } from '@material-ui/core';
+import { ExpandMore } from '@material-ui/icons'
+import { connect } from 'react-redux'
 
 const styles = theme => ({
   root: {
@@ -25,39 +23,35 @@ const styles = theme => ({
   }
 });
 
-function SimpleTable(props) {
-  const { classes, beers } = props;
+class BeerTable extends React.Component {
+  render() {
+    const { classes } = this.props;
+    const { beers } = this.props;
 
-  return (
-    <Table fixedHeader={false} className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell className={classes.tableCell}>Beer Name</TableCell>
-            <TableCell className={classes.tableCell} numeric>Brewery</TableCell>
-            <TableCell className={classes.tableCell} numeric>Submitter</TableCell>
-            <TableCell className={classes.tableCell} numeric>Rating</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {beers.beers.map(beer => {
-            return (
-              <TableRow key={beer.id}>
-                <TableCell className={classes.tableCell} component="th" scope="row">
-                  {beer.name}
-                </TableCell>
-                <TableCell className={classes.tableCell} numeric>{beer.brewery}</TableCell>
-                <TableCell className={classes.tableCell} numeric>{beer.submitter}</TableCell>
-                <TableCell className={classes.tableCell} numeric>{beer.rating}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-  );
+    return (
+      <div>
+        {beers.beers.map(beer => {
+          return (
+            <ExpansionPanel key={beer.id}>
+              <ExpansionPanelSummary expandIcon={<ExpandMore />}>
+                <Typography className={classes.heading}>{beer.name}</Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                <p> {beer.submitter} </p>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          )
+        })}
+      </div>
+    )
+  }
 }
 
-SimpleTable.propTypes = {
+BeerTable.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleTable);
+const mapStateToProps = (state) => state.beers
+const ConnectedBeerTable = connect(mapStateToProps)(BeerTable)
+
+export default withStyles(styles)(ConnectedBeerTable);

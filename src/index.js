@@ -2,20 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import store from './store'
+import { bindActionCreators } from 'redux'
+import { submitBeer } from './reducers/beer'
 
-const onSubmitHandler = (val) => {
-    store.dispatch({type: 'SUBMIT_BEER', payload: val})
-}
+const actions = bindActionCreators({
+    submitBeer
+}, store.dispatch)
 
-const render = () => {
-    const state = store.getState()
-    ReactDOM.render(<App beers={state.beers} onSubmit={onSubmitHandler}/>, document.getElementById('root'))
-}
-
-
-render()
-store.subscribe(render)
+ReactDOM.render(
+    <Provider store={store}>
+        <App onSubmit={actions.submitBeer} />
+    </Provider>, 
+    document.getElementById('root')
+)
 
 serviceWorker.register()
