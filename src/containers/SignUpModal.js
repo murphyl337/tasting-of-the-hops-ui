@@ -92,7 +92,7 @@ class SignUpModal extends React.Component {
               <Button onClick={this.handleClose} color="primary">
                 Cancel
             </Button>
-              <Button onClick={this.handleSignUpClicked.bind(this)} color="primary" autoFocus>
+              <Button onClick={this.handleSignUpClicked.bind(this)} type="submit" color="primary" autoFocus>
                 Sign Up
             </Button>
             </DialogActions>

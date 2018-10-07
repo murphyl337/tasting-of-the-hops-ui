@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { ReactComponent as AppIcon } from '../appIcon.svg';
 
 const styles = theme => ({
   root: {
@@ -33,6 +34,7 @@ function SearchAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.appToolbar}>
+          <AppIcon></AppIcon>
           <Typography className={classes.title} variant="title" color="inherit">
             Tasting of the Hops
           </Typography>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppBar from './AppBar'
+import AppBar from './components/AppBar'
 import BeerTable from './containers/BeerTable'
 import './App.css'
 import SignUpModal from './containers/SignUpModal';
